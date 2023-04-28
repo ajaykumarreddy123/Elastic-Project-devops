@@ -1,6 +1,5 @@
 pipeline {
-  #agent {label 'jenkins-ssh-slave'}
-agent any
+  agent {label 'jenkins-ssh-slave'}
   stages {
     stage('Hello') {
       steps {
