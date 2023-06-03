@@ -33,7 +33,7 @@
 
 - name: Download Apache Kafka
   get_url:
-    url: "{{ kafka_download_base_url }}/{{ kafka_version }}/kafka_{{ kafka_scala_version }}-{{ kafka_version }}.tgz"
+    url: "{{ kafka_download_base_url }}/{{ kafka_version }}/kafka{{ kafka_scala_version }}-{{ kafka_version }}src.tgz"
     dest: /tmp
   when: not dir.stat.exists
   tags:
@@ -41,7 +41,7 @@
 
 - name: Unpack Apache Kafka
   unarchive:
-    src: /tmp/kafka_{{ kafka_scala_version }}-{{ kafka_version }}.tgz
+    src: /tmp/kafka{{ kafka_scala_version }}-{{ kafka_version }}src.tgz
     dest: '{{ kafka_root_dir }}'
     copy: no
     group: '{{ kafka_group }}'
